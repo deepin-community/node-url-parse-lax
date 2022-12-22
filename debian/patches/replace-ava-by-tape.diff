@@ -1,0 +1,27 @@
+Description: replace ava by tape
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2020-12-21
+
+--- a/test.js
++++ b/test.js
+@@ -1,10 +1,11 @@
+-import test from 'ava';
+-import urlParseLax from '.';
++const test = require('tape');
++const urlParseLax = require('.');
+ 
+ test('wrong input', t => {
+ 	t.throws(() => {
+ 		urlParseLax(5);
+ 	}, 'Expected `url` to be of type `string`, got `number` instead.');
++	t.end();
+ });
+ 
+ test('parse urls', t => {
+@@ -13,4 +14,5 @@
+ 	t.is(urlParseLax('[2001:db8::]:80').hostname, '2001:db8::');
+ 	t.true(urlParseLax('sindresorhus.com').href.startsWith('https://'));
+ 	t.true(urlParseLax('sindresorhus.com', {https: false}).href.startsWith('http://'));
++	t.end();
+ });

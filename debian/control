@@ -1,0 +1,29 @@
+Source: node-url-parse-lax
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Rajeev R Menon <icyfire@disroot.org>
+Section: javascript
+Testsuite: autopkgtest-pkg-nodejs
+Priority: optional
+Build-Depends: debhelper-compat (= 13)
+ , dh-sequence-nodejs
+ , node-prepend-http <!nocheck>
+ , node-tape <!nocheck>
+Standards-Version: 4.6.0
+Vcs-Browser: https://salsa.debian.org/js-team/node-url-parse-lax
+Vcs-Git: https://salsa.debian.org/js-team/node-url-parse-lax.git
+Homepage: https://github.com/sindresorhus/url-parse-lax
+Rules-Requires-Root: no
+
+Package: node-url-parse-lax
+Architecture: all
+Depends: ${misc:Depends}
+ , node-prepend-http
+Multi-Arch: foreign
+Description: url.parse() with support for protocol-less URLs & IPs
+ Lax url.parse() with support for protocol-less URLs & IPs
+ .
+ The url.parse() method takes a URL string, parses it, and returns a URL
+ object. A TypeError is thrown if urlString is not a string. A URIError is
+ thrown if the auth property is present but cannot be decoded.
+ .
+ Node.js is an event-based server-side JavaScript engine.
